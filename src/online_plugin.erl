@@ -59,7 +59,8 @@
 
 %% Called when the plugin application start
 load(Env) ->
-    hook('client.connected',    {?MODULE, on_client_connected, [Env]}).
+    hook('client.connected',    {?MODULE, on_client_connected, [Env]}),
+    ok.
 
 %%--------------------------------------------------------------------
 %% Client LifeCircle Hooks
