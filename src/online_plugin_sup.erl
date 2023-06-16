@@ -14,7 +14,7 @@
 %% limitations under the License.
 %%--------------------------------------------------------------------
 
--module(emqx_plugin_template_sup).
+-module(online_plugin_sup).
 
 -behaviour(supervisor).
 
