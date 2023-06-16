@@ -14,7 +14,7 @@
 %% limitations under the License.
 %%--------------------------------------------------------------------
 
--module(emqx_plugin_template_app).
+-module(online_plugin_app).
 
 -behaviour(application).
 

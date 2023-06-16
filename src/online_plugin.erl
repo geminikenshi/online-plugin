@@ -59,25 +59,7 @@
 
 %% Called when the plugin application start
 load(Env) ->
-    hook('client.connect',      {?MODULE, on_client_connect, [Env]}),
-    hook('client.connack',      {?MODULE, on_client_connack, [Env]}),
-    hook('client.connected',    {?MODULE, on_client_connected, [Env]}),
-    hook('client.disconnected', {?MODULE, on_client_disconnected, [Env]}),
-    hook('client.authenticate', {?MODULE, on_client_authenticate, [Env]}),
-    hook('client.authorize',    {?MODULE, on_client_authorize, [Env]}),
-    hook('client.subscribe',    {?MODULE, on_client_subscribe, [Env]}),
-    hook('client.unsubscribe',  {?MODULE, on_client_unsubscribe, [Env]}),
-    hook('session.created',     {?MODULE, on_session_created, [Env]}),
-    hook('session.subscribed',  {?MODULE, on_session_subscribed, [Env]}),
-    hook('session.unsubscribed',{?MODULE, on_session_unsubscribed, [Env]}),
-    hook('session.resumed',     {?MODULE, on_session_resumed, [Env]}),
-    hook('session.discarded',   {?MODULE, on_session_discarded, [Env]}),
-    hook('session.takenover',   {?MODULE, on_session_takenover, [Env]}),
-    hook('session.terminated',  {?MODULE, on_session_terminated, [Env]}),
-    hook('message.publish',     {?MODULE, on_message_publish, [Env]}),
-    hook('message.delivered',   {?MODULE, on_message_delivered, [Env]}),
-    hook('message.acked',       {?MODULE, on_message_acked, [Env]}),
-    hook('message.dropped',     {?MODULE, on_message_dropped, [Env]}).
+    hook('client.connected',    {?MODULE, on_client_connected, [Env]}).
 
 %%--------------------------------------------------------------------
 %% Client LifeCircle Hooks
@@ -182,25 +164,7 @@ on_message_acked(_ClientInfo = #{clientid := ClientId}, Message, _Env) ->
 
 %% Called when the plugin application stop
 unload() ->
-    unhook('client.connect',      {?MODULE, on_client_connect}),
-    unhook('client.connack',      {?MODULE, on_client_connack}),
-    unhook('client.connected',    {?MODULE, on_client_connected}),
-    unhook('client.disconnected', {?MODULE, on_client_disconnected}),
-    unhook('client.authenticate', {?MODULE, on_client_authenticate}),
-    unhook('client.authorize',    {?MODULE, on_client_authorize}),
-    unhook('client.subscribe',    {?MODULE, on_client_subscribe}),
-    unhook('client.unsubscribe',  {?MODULE, on_client_unsubscribe}),
-    unhook('session.created',     {?MODULE, on_session_created}),
-    unhook('session.subscribed',  {?MODULE, on_session_subscribed}),
-    unhook('session.unsubscribed',{?MODULE, on_session_unsubscribed}),
-    unhook('session.resumed',     {?MODULE, on_session_resumed}),
-    unhook('session.discarded',   {?MODULE, on_session_discarded}),
-    unhook('session.takenover',   {?MODULE, on_session_takenover}),
-    unhook('session.terminated',  {?MODULE, on_session_terminated}),
-    unhook('message.publish',     {?MODULE, on_message_publish}),
-    unhook('message.delivered',   {?MODULE, on_message_delivered}),
-    unhook('message.acked',       {?MODULE, on_message_acked}),
-    unhook('message.dropped',     {?MODULE, on_message_dropped}).
+    unhook('client.connected',    {?MODULE, on_client_connected}).
 
 hook(HookPoint, MFA) ->
     %% use highest hook priority so this module's callbacks

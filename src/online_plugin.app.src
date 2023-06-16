@@ -1,5 +1,5 @@
-{application, emqx_plugin_template,
- [{description, "EMQX Plugin Template"},
+{application, online_plugin,
+ [{description, "EMQX Online Plugin"},
   {vsn, "5.0.0"},
   {modules, []},
   {registered, [emqx_plugin_template_sup]},
@@ -9,6 +9,6 @@
   {licenses, ["Apache-2.0"]},
   {maintainers, ["EMQX Team <contact@emqx.io>"]},
   {links, [{"Homepage", "https://emqx.io/"},
-           {"Github", "https://github.com/emqx/emqx-plugin-template"}
+           {"Github", "https://github.com/geminikenshi/online-plugin"}
           ]}
  ]}.
